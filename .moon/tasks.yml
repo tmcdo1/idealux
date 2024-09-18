@@ -1,0 +1,5 @@
+tasks:
+  format:
+    command: "bun run format"
+  lint:
+    command: "bun run lint"
