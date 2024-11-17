@@ -2,9 +2,6 @@
 import RoomCodeForm from "@/components/forms/RoomCodeForm.vue";
 import RoomItem from "@/components/RoomItem.vue";
 import { Card } from "@/components/ui/card";
-import { useRouter } from "vue-router";
-
-const router = useRouter();
 
 const rooms = [
   { id: 1, name: "Room 1", description: "This is the first room." },
@@ -22,11 +19,7 @@ const rooms = [
         Welcome to idealux
       </h1>
       <Card class="px-12 py-8">
-        <RoomCodeForm
-          @submit="
-            (code) => router.push({ name: 'room', params: { id: code } })
-          "
-        />
+        <RoomCodeForm />
       </Card>
     </section>
 

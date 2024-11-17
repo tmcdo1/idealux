@@ -12,10 +12,9 @@ import {
 } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
 import Input from "../ui/input/Input.vue";
+import { useRouter } from "vue-router";
 
-const emit = defineEmits<{
-  (e: "submit", code: string): void;
-}>();
+const router = useRouter();
 
 const formSchema = toTypedSchema(
   z.object({
@@ -28,8 +27,7 @@ const form = useForm({
 });
 
 const onSubmit = form.handleSubmit((values) => {
-  console.log("Form submitted!", values);
-  emit("submit", values.code);
+  router.push({ name: "room", params: { id: values.code } });
 });
 </script>
 
