@@ -9,12 +9,12 @@ new Elysia()
       ws.subscribe(`room:${ws.data.query.id}`);
     },
     message(ws, message) {
-      console.log("data test", ws.data);
+      console.log("data", ws.data);
       ws.send(`You said: ${message}`);
-      ws.publish(`room:${ws.data.query.id}`, message);
+      ws.publish(`room:${ws.data.query.id}`, 'Wow');
     },
     close(ws) {
       ws.unsubscribe(`room:${ws.data.query.id}`);
     },
   })
-  .listen(3000);
+  .listen(3000, () => console.log("Listening on http://localhost:3000"));
